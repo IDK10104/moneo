@@ -9,14 +9,11 @@ import {
 
 gsap.registerPlugin(ScrollTrigger)
 
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
 /* ── Hero ─────────────────────────────────────────────────────── */
 function Hero() {
   const heroRef = useRef(null)
 
   useEffect(() => {
-    if (prefersReducedMotion) return
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.15 })
       tl.fromTo('.hero-badge',   { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' })
@@ -181,7 +178,6 @@ function Stats() {
   const ref = useRef(null)
 
   useEffect(() => {
-    if (prefersReducedMotion) return
     const ctx = gsap.context(() => {
       gsap.fromTo(
         '[data-stat]',
@@ -224,7 +220,6 @@ function Logos() {
   const ref = useRef(null)
 
   useEffect(() => {
-    if (prefersReducedMotion) return
     const ctx = gsap.context(() => {
       gsap.fromTo(
         '[data-logo]',
@@ -263,7 +258,6 @@ function Features() {
   const gridRef = useRef(null)
 
   useEffect(() => {
-    if (prefersReducedMotion) return
     const ctx = gsap.context(() => {
       gsap.fromTo(
         '[data-fhdr]',
@@ -332,7 +326,6 @@ function HowItWorks() {
   const ref = useRef(null)
 
   useEffect(() => {
-    if (prefersReducedMotion) return
     const ctx = gsap.context(() => {
       gsap.fromTo('[data-step]', { opacity: 0, y: 40 }, {
         opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: 'power3.out',
@@ -381,7 +374,6 @@ function Testimonials() {
   const ref = useRef(null)
 
   useEffect(() => {
-    if (prefersReducedMotion) return
     const ctx = gsap.context(() => {
       gsap.fromTo('[data-tcard]', { opacity: 0, y: 50, scale: 0.97 }, {
         opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out',
@@ -437,7 +429,6 @@ function CTA() {
   const ref = useRef(null)
 
   useEffect(() => {
-    if (prefersReducedMotion) return
     const ctx = gsap.context(() => {
       gsap.fromTo('[data-cta]', { opacity: 0, y: 40 }, {
         opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out',

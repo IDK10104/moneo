@@ -10,8 +10,6 @@ import {
 
 gsap.registerPlugin(ScrollTrigger)
 
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
 function PageHero() {
   return (
     <section aria-labelledby="funk-heading" className="bg-zinc-950 border-b border-zinc-800 pt-28 pb-16 relative overflow-hidden">
@@ -36,7 +34,6 @@ function FeatureBlock({ icon: Icon, title, desc, points, flip }) {
   const rightRef = useRef(null)
 
   useEffect(() => {
-    if (prefersReducedMotion) return
     const ctx = gsap.context(() => {
       gsap.fromTo(leftRef.current, { opacity: 0, x: flip ? 50 : -50 }, {
         opacity: 1, x: 0, duration: 0.8, ease: 'power3.out',
@@ -146,7 +143,6 @@ function MainFeatures() {
 function AdditionalFeatures() {
   const ref = useRef(null)
   useEffect(() => {
-    if (prefersReducedMotion) return
     const ctx = gsap.context(() => {
       gsap.fromTo('[data-addcard]', { opacity: 0, y: 30, scale: 0.97 }, {
         opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.06, ease: 'power3.out',
